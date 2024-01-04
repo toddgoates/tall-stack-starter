@@ -1,7 +1,13 @@
 <main class="h-[calc(100vh-64px)] bg-gray-300 text-gray-800 flex justify-center items-center">
     <div class="bg-gray-100 rounded p-6 shadow-lg">
-        <h1 class="text-4xl font-extrabold mb-8">Sign in to your account</h1>
-        <form class="space-y-8" wire:submit="login">
+        <h1 class="text-4xl font-extrabold mb-8">Sign up for an account</h1>
+        <form class="space-y-8" wire:submit="register">
+            <div>
+                <label for="name" class="block mb-1 font-semibold">Name</label>
+                <input type="text" wire:model="name" id="name" class="w-full rounded" />
+                @error('name') <span class="text-red-500">{{ $message }}</span> @enderror
+            </div>
+
             <div>
                 <label for="email" class="block mb-1 font-semibold">Email</label>
                 <input type="email" wire:model="email" id="email" class="w-full rounded" />
@@ -18,7 +24,7 @@
                 <button 
                     type="submit" 
                     class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded py-2">
-                    Sign In
+                    Sign Up
                 </button>
             </div>
         </form>
