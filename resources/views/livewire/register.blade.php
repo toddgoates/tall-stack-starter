@@ -30,7 +30,7 @@
         </form>
         <div class="flex flex-col gap-4">
             <p>Already have an account?
-                <a href="{{ route('login') }}" class="font-semibold underline">
+                <a href="{{ route('login') }}" wire:navigate class="font-semibold underline">
                     Log in
                 </a>
             </p>

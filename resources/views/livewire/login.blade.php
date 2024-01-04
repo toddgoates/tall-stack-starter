@@ -32,10 +32,10 @@
         </form>
         <div class="flex flex-col gap-4">
             <p>
-                <a href="{{ route('password.request') }}" class="font-semibold underline">Forgot your password?</a>
+                <a href="{{ route('password.request') }}" wire:navigate class="font-semibold underline">Forgot your password?</a>
             </p>
             <p>Don't have an account?
-                <a href="{{ route('register') }}" class="font-semibold underline">
+                <a href="{{ route('register') }}" wire:navigate class="font-semibold underline">
                     Sign up
                 </a>
             </p>
