@@ -1,3 +1,3 @@
-<div>
+<main class="container mx-auto p-6">
     This is a logged in home page
-</div>
+</main>
