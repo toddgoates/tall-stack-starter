@@ -22,13 +22,13 @@ class Login extends Component
 
         if (Auth::attempt($credentials)) {
             session()->regenerate();
- 
+
             return redirect()->route('home');
         }
 
         $this->addError('email', 'Your credentials are invalid.');
     }
-    
+
     public function render()
     {
         return view('livewire.login');

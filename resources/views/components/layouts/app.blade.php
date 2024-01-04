@@ -6,9 +6,11 @@
 
         <title>{{ $title ?? 'Page Title' }}</title>
 
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         @vite('resources/css/app.css')
     </head>
-    <body>
+    <body class="h-screen">
+        <livewire:navbar />
         {{ $slot }}
     </body>
 </html>

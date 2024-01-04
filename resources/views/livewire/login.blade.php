@@ -1,4 +1,4 @@
-<main class="h-screen bg-gray-300 text-gray-800 grid justify-center items-center">
+<main class="h-full bg-gray-300 text-gray-800 flex justify-center items-center">
     <div class="bg-gray-100 rounded p-6 shadow-lg">
         <h1 class="text-4xl font-extrabold mb-8">Sign in to your account</h1>
         <form class="space-y-8" wire:submit="login">
