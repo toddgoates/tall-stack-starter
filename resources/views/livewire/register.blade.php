@@ -1,5 +1,5 @@
 <main class="h-[calc(100vh-64px)] bg-gray-300 text-gray-800 flex justify-center items-center">
-    <div class="bg-gray-100 rounded p-6 shadow-lg">
+    <div class="bg-gray-100 rounded p-6 shadow-lg m-6 w-full md:w-1/2 lg:w-1/3">
         <h1 class="text-4xl font-extrabold mb-8">Sign up for an account</h1>
         <form class="space-y-8 mb-12" wire:submit="register">
             <div>

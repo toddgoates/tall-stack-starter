@@ -1,5 +1,5 @@
 <main class="h-[calc(100vh-64px)] bg-gray-300 text-gray-800 flex justify-center items-center">
-    <div class="bg-gray-100 rounded p-6 shadow-lg">
+    <div class="bg-gray-100 rounded p-6 shadow-lg m-6 w-full md:w-1/2 lg:w-1/3">
         <h1 class="text-4xl font-extrabold mb-8">Reset your password</h1>
         <div x-show="$wire.message"
             :class="{
