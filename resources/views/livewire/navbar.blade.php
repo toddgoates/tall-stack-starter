@@ -24,14 +24,10 @@
         </div>
         <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
-              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               @auth
                 <a href="{{ route('home') }}" wire:navigate class="{{ Route::currentRouteName() === 'home' ? 'bg-gray-900 text-white' : 'text-gray-300 hover;bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium" aria-current="page">
                   Dashboard
                 </a>
-                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Team</a>
-                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
-                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</a>
               @endauth
               @guest
                 <a href="{{ route('login') }}" wire:navigate class="{{ Route::currentRouteName() === 'login' ? 'bg-gray-900 text-white' : 'text-gray-300 hover;bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">
@@ -94,14 +90,10 @@
   <!-- Mobile menu, show/hide based on menu state. -->
   <div :class="mobileMenuOpen ? 'absolute w-full bg-gray-800 z-10 sm:hidden' : 'hidden'" id="mobile-menu">
     <div class="space-y-1 px-2 pb-3 pt-2">
-      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
       @auth
-        <a href="#" wire:navigate class="{{ Route::currentRouteName() === 'home' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium" aria-current="page">
+        <a href="{{ route('home') }}" wire:navigate class="{{ Route::currentRouteName() === 'home' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium" aria-current="page">
           Dashboard
         </a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
       @endauth
       @guest
         <a href="{{ route('login') }}" wire:navigate class="{{ Route::currentRouteName() === 'login' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium">
