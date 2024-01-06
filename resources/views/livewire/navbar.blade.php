@@ -35,7 +35,7 @@
               @endauth
               @guest
                 <a href="{{ route('login') }}" wire:navigate class="{{ Route::currentRouteName() === 'login' ? 'bg-gray-900 text-white' : 'text-gray-300 hover;bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">
-                  Login
+                  Log in
                 </a>
                 <a href="{{ route('register') }}" wire:navigate class="{{ Route::currentRouteName() === 'register' ? 'bg-gray-900 text-white' : 'text-gray-300 hover;bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">
                   Register
@@ -105,7 +105,7 @@
       @endauth
       @guest
         <a href="{{ route('login') }}" wire:navigate class="{{ Route::currentRouteName() === 'login' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium">
-          Login
+          Log in
         </a>
         <a href="{{ route('register') }}" wire:navigate class="{{ Route::currentRouteName() === 'register' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium">
           Register
