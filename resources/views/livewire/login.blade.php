@@ -20,7 +20,7 @@
                 <label for="password" class="block mb-1 font-semibold">Password</label>
                 <div class="mt-2 flex rounded-md shadow-sm">
                     <div class="relative flex flex-grow items-stretch focus-within:z-10">
-                        <input x-bind:type="showPassword ? 'text' : 'password'" id="password" class="w-full rounded-none rounded-l">
+                        <input x-bind:type="showPassword ? 'text' : 'password'" wire:model="password" id="password" class="w-full rounded-none rounded-l">
                     </div>
                     <button type="button" x-on:click="showPassword = !showPassword" class="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r px-3 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-700 hover:bg-gray-50">
                         <svg x-show="!showPassword" class="-ml-0.5 h-5 w-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -32,7 +32,7 @@
                         </svg>
                     </button>
                 </div>
-                @error('email') <span class="text-red-500">{{ $message }}</span> @enderror
+                @error('password') <span class="text-red-500">{{ $message }}</span> @enderror
             </div>
 
             <div>
