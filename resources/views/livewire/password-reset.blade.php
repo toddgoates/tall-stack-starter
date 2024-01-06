@@ -13,7 +13,7 @@
         <form class="space-y-8" wire:submit="resetpassword">
             <div>
                 <label for="email" class="block mb-1 font-semibold">Email</label>
-                <input type="email" wire:model="email" id="email" class="w-full rounded" />
+                <input type="email" wire:model="email" id="email" class="w-full rounded" readonly />
                 @error('email') <span class="text-red-500">{{ $message }}</span> @enderror
             </div>
 

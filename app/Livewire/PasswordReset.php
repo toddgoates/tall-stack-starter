@@ -27,6 +27,7 @@ class PasswordReset extends Component
     public function mount($token)
     {
         $this->token = $token;
+        $this->email = request()->email;
     }
 
     public function resetpassword()
