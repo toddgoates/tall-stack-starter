@@ -5,6 +5,7 @@ use App\Livewire\ForgotPassword;
 use App\Livewire\Login;
 use App\Livewire\PasswordReset;
 use App\Livewire\Register;
+use App\Livewire\UserProfile;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,5 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', Dashboard::class)->name('home');
+    Route::get('/profile', UserProfile::class)->name('profile');
 });
