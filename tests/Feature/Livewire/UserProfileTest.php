@@ -38,3 +38,30 @@ it('updates the user\'s personal information', function () {
         ->assertSee('name', 'John Doe')
         ->assertSee('email', 'john@example.com');
 });
+
+it('validates the user\'s password', function () {
+    $user = User::factory()->create();
+
+    Livewire::actingAs($user)
+        ->test(UserProfile::class)
+        ->set('currentPassword', '')
+        ->set('password', '')
+        ->set('passwordConfirmation', '')
+        ->call('updatePassword')
+        ->assertHasErrors(['currentPassword', 'password', 'passwordConfirmation'])
+        ->assertSee('The current password field is required.')
+        ->assertSee('The password field is required.');
+});
+
+it('updates the user\'s password', function () {
+    $user = User::factory()->create();
+
+    Livewire::actingAs($user)
+        ->test(UserProfile::class)
+        ->set('currentPassword', 'password')
+        ->set('password', 'new-password')
+        ->set('passwordConfirmation', 'new-password')
+        ->call('updatePassword')
+        ->assertSee('message', 'Your password has been updated.')
+        ->assertSee('messageColor', 'green');
+});

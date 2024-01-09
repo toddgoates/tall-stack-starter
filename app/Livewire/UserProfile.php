@@ -2,20 +2,26 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Title;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 #[Title('Profile')]
 class UserProfile extends Component
 {
-    #[Validate(('required|min:2'))]
     public $name;
 
-    #[Validate(('required|email'))]
     public $email;
 
-    public $message = '';
+    public $currentPassword;
+
+    public $password;
+
+    public $passwordConfirmation;
+
+    public $profileInfoMessage = '';
+
+    public $passwordMessage = '';
 
     public $messageColor = '';
 
@@ -27,16 +33,45 @@ class UserProfile extends Component
 
     public function updatePersonalInfo()
     {
-        $this->reset(['message', 'messageColor']);
-        $this->validate();
+        $this->reset(['profileInfoMessage', 'messageColor']);
+        $this->validate([
+            'name' => 'required|min:2',
+            'email' => 'required|email',
+        ]);
 
         auth()->user()->update([
             'name' => $this->name,
             'email' => $this->email,
         ]);
 
-        $this->message = 'Your personal information has been updated.';
+        $this->profileInfoMessage = 'Your personal information has been updated.';
         $this->messageColor = 'green';
+    }
+
+    public function updatePassword()
+    {
+        $this->reset(['passwordMessage', 'messageColor']);
+        $this->validate([
+            'currentPassword' => 'required',
+            'password' => 'required|min:8',
+            'passwordConfirmation' => [
+                'required',
+                'same:password',
+            ]
+        ]);
+
+        if (auth()->attempt(['email' => auth()->user()->email, 'password' => $this->currentPassword])) {
+            auth()->user()->update([
+                'password' => Hash::make($this->password),
+            ]);
+
+            $this->passwordMessage = 'Your password has been updated.';
+            $this->messageColor = 'green';
+            $this->reset(['currentPassword', 'password', 'passwordConfirmation']);
+        } else {
+            $this->passwordMessage = 'Your current password is incorrect.';
+            $this->messageColor = 'red';
+        }
     }
 
     public function render()
