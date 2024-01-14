@@ -12,6 +12,12 @@ it('renders successfully', function () {
         ->assertStatus(200);
 });
 
+it('validates the profile pic', function () {})->todo();
+
+it('updates the profile pic', function () {})->todo();
+
+it('removes the profile pic', function () {})->todo();
+
 it('validates the user\'s personal information', function () {
     $user = User::factory()->create();
 

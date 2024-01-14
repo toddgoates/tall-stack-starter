@@ -5,10 +5,17 @@ namespace App\Livewire;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 #[Title('Profile')]
 class UserProfile extends Component
 {
+    use WithFileUploads;
+
+    public $photo;
+
+    public $profilePic;
+
     public $name;
 
     public $email;
@@ -18,6 +25,8 @@ class UserProfile extends Component
     public $password;
 
     public $passwordConfirmation;
+
+    public $photoMessage = '';
 
     public $profileInfoMessage = '';
 
@@ -29,6 +38,38 @@ class UserProfile extends Component
     {
         $this->name = auth()->user()->name;
         $this->email = auth()->user()->email;
+        $this->profilePic = auth()->user()->profile_photo_path;
+    }
+
+    public function updateProfilePic()
+    {
+        $this->reset(['photoMessage', 'messageColor']);
+        $this->validate([
+            'photo' => 'image|max:1024',
+        ]);
+
+        $path = $this->photo->store('profile-photos', 'public');
+
+        auth()->user()->update([
+            'profile_photo_path' => $path,
+        ]);
+
+        $this->photoMessage = 'Your profile pic has been uploaded successfully.';
+        $this->messageColor = 'green';
+        $this->profilePic = auth()->user()->profile_photo_path;
+        $this->reset('photo');
+    }
+
+    public function deleteProfilePic()
+    {
+        $this->reset(['photoMessage', 'messageColor']);
+        auth()->user()->update([
+            'profile_photo_path' => null,
+        ]);
+
+        $this->photoMessage = 'Your profile pic has been deleted successfully.';
+        $this->messageColor = 'green';
+        $this->profilePic = auth()->user()->profile_photo_path;
     }
 
     public function updatePersonalInfo()
