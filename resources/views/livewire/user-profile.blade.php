@@ -10,14 +10,19 @@
 
             <form class="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2" wire:submit="updatePersonalInfo">
                 <div class="px-4 py-6 sm:p-8">
-                    <div x-show="$wire.profileInfoMessage" x-transition x-effect="setTimeout(() => {$wire.profileInfoMessage = ''; $wire.messageColor = '';}, 5000)"
+                    <div
+                        wire:key="{{ rand() }}"
+                        x-show="$wire.profileInfoMessage" 
+                        x-transition
+                        x-init="setTimeout(() => {$wire.profileInfoMessage = ''; $wire.messageColor = '';}, 5000)"
                         :class="{
                             'bg-green-300 text-green-800 border-l-4 border-green-800 p-4 my-4': $wire
                                 .messageColor === 'green',
                             'bg-red-300 text-red-800 border-l-4 border-red-800 p-4 my-4': $wire
                                 .messageColor === 'red',
                         }"
-                        role="alert">
+                        role="alert"
+                    >
                         {{ $profileInfoMessage }}
                     </div>
                     <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -65,14 +70,19 @@
 
             <form class="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2" wire:submit="updatePassword">
                 <div class="px-4 py-6 sm:p-8">
-                    <div x-show="$wire.passwordMessage" x-transition x-effect="setTimeout(() => {$wire.passwordMessage = ''; $wire.messageColor = '';}, 5000)"
+                    <div
+                        wire:key="{{ rand() }}"
+                        x-show="$wire.passwordMessage" 
+                        x-transition 
+                        x-init="setTimeout(() => {$wire.passwordMessage = ''; $wire.messageColor = '';}, 5000)"
                         :class="{
                             'bg-green-300 text-green-800 border-l-4 border-green-800 p-4 my-4': $wire
                                 .messageColor === 'green',
                             'bg-red-300 text-red-800 border-l-4 border-red-800 p-4 my-4': $wire
                                 .messageColor === 'red',
                         }"
-                        role="alert">
+                        role="alert"
+                    >
                         {{ $passwordMessage }}
                     </div>
                     <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
