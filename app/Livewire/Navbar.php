@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Navbar extends Component
@@ -18,8 +19,13 @@ class Navbar extends Component
         return redirect('/login');
     }
 
+    #[On('profilePicUpdated')]
     public function render()
     {
-        return view('livewire.navbar');
+        $profilePic = auth()->user()->profile_photo_path ?? null;
+
+        return view('livewire.navbar', [
+            'profilePic' => $profilePic,
+        ]);
     }
 }

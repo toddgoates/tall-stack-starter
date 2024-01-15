@@ -48,8 +48,8 @@
             <button type="button" @click="profileMenuOpen = !profileMenuOpen" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
               <span class="absolute -inset-1.5"></span>
               <span class="sr-only">Open user menu</span>
-              @if (auth()->user()->profile_photo_path)
-                <img class="h-8 w-8 rounded-full" src="{{ auth()->user()->profile_photo_path}}" alt="{{ auth()->user()->name }}">
+              @if ($profilePic)
+                <img class="h-8 w-8 rounded-full" src="{{ $profilePic }}" alt="{{ auth()->user()->name }}">
               @else
                 <span class="inline-block h-8 w-8 rounded-full overflow-hidden bg-gray-100">
                   <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">

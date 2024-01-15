@@ -57,7 +57,10 @@ class UserProfile extends Component
         $this->photoMessage = 'Your profile pic has been uploaded successfully.';
         $this->messageColor = 'green';
         $this->profilePic = auth()->user()->profile_photo_path;
+
         $this->reset('photo');
+
+        $this->dispatch('profilePicUpdated');
     }
 
     public function deleteProfilePic()
@@ -70,6 +73,8 @@ class UserProfile extends Component
         $this->photoMessage = 'Your profile pic has been deleted successfully.';
         $this->messageColor = 'green';
         $this->profilePic = auth()->user()->profile_photo_path;
+
+        $this->dispatch('profilePicUpdated');
     }
 
     public function updatePersonalInfo()
