@@ -9,7 +9,7 @@ use Livewire\Component;
 class UserProfilePassword extends Component
 {
     public User $user;
-    
+
     public $currentPassword;
 
     public $password;

@@ -28,7 +28,7 @@ it('validates the profile pic', function () {
 it('updates the profile pic', function () {
     Storage::fake('public');
     $file = UploadedFile::fake()->image('avatar.png');
-    
+
     $user = User::factory()->create();
 
     Livewire::actingAs($user)

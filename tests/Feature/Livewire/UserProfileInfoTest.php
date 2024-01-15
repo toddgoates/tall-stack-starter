@@ -6,7 +6,7 @@ use Livewire\Livewire;
 
 it('renders successfully', function () {
     $user = User::factory()->create();
-    
+
     Livewire::actingAs($user)
         ->test(UserProfileInfo::class, ['user' => $user])
         ->assertStatus(200);

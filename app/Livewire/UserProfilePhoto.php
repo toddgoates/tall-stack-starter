@@ -60,7 +60,7 @@ class UserProfilePhoto extends Component
 
         $this->dispatch('profilePicUpdated');
     }
-    
+
     public function render()
     {
         return view('livewire.user-profile-photo');
