@@ -2,7 +2,6 @@
 
 namespace App\Listeners;
 
-use Illuminate\Auth\Events\Login;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class StoreUserLogin implements ShouldQueue
@@ -18,10 +17,11 @@ class StoreUserLogin implements ShouldQueue
     /**
      * Handle the event.
      */
-    public function handle(Login $event): void
+    public function handle(object $event): void
     {
         $event->user->logins()->create([
-            'ip' => request()->ip(),
+            'ip_address' => request()->ip(),
+            'user_agent' => request()->userAgent(),
             'login_at' => now(),
         ]);
     }

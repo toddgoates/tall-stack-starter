@@ -19,7 +19,8 @@ class LoginFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'ip' => fake()->ipv4(),
+            'ip_address' => fake()->ipv4(),
+            'user_agent' => fake()->userAgent(),
             'login_at' => fake()->dateTime(),
         ];
     }

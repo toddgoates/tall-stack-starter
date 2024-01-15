@@ -51,10 +51,10 @@
               @if ($profilePic)
                 <img class="h-8 w-8 rounded-full" src="{{ $profilePic }}" alt="{{ auth()->user()->name }}">
               @else
-                <span class="inline-block h-8 w-8 rounded-full overflow-hidden bg-gray-100">
-                  <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 14c2.7614 0 5-2.2386 5-5 0-2.7614-2.2386-5-5-5-2.7614 0-5 2.2386-5 5 0 2.7614 2.2386 5 5 5zm0 2c-3.3137 0-9 1.6863-9 5v1h18v-1c0-3.3137-5.6863-5-9-5z"/>
-                  </svg>
+                <span class="inline-flex size-10 items-center justify-center rounded-full bg-gray-500">
+                  <span class="font-medium leading-none text-white">
+                    {{ auth()->user()->initials() }}
+                  </span>
                 </span>
               @endif
             </button>
@@ -80,7 +80,7 @@
             <form wire:submit="logout">
               <button 
                 type="submit" 
-                class="block px-4 py-2 text-sm text-gray-700" 
+                class="block text-left w-full px-4 py-2 text-sm text-gray-700" 
                 role="menuitem" 
                 tabindex="-1" 
                 id="user-menu-item-2"

@@ -45,4 +45,15 @@ class User extends Authenticatable
     {
         return $this->hasOne(Login::class)->latestOfMany();
     }
+
+    public function initials(): string
+    {
+        $initials = '';
+
+        foreach (explode(' ', $this->name) as $word) {
+            $initials .= $word[0];
+        }
+
+        return $initials;
+    }
 }
