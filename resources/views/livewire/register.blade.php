@@ -30,7 +30,7 @@
                         </svg>
                     </button>
                 </div>
-                @error('email') <span class="text-red-500">{{ $message }}</span> @enderror
+                @error('password') <span class="text-red-500">{{ $message }}</span> @enderror
             </div>
 
             <div>
