@@ -11,5 +11,5 @@ it('renders successfully', function () {
 it('renders an offline message when offline', function () {
     Livewire::test(ConnectionStatus::class)
         ->set('offline', true)
-        ->assertSee('Whoops, your device has lost connection. The web page you are viewing is offline.');
+        ->assertSee('Your device has lost its internet connection. The web page you are viewing is now offline.');
 });
